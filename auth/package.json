@@ -30,7 +30,10 @@
     "express-validator": "^6.4.0",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.9.7",
+    "mysql": "^2.18.1",
+    "reflect-metadata": "^0.1.13",
     "ts-node-dev": "^1.0.0-pre.44",
+    "typeorm": "^0.2.29",
     "typescript": "^3.8.3"
   },
   "devDependencies": {

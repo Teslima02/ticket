@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
-
+import "reflect-metadata";
 import { app } from './app';
 
 const start = async () => {
