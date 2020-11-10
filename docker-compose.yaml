@@ -1,0 +1,33 @@
+version: "3"
+services:
+  auth-services:
+    # build: "./auth/auth-services"
+    build:
+      context: "."
+      dockerfile: "./auth/Dockerfile"
+    depends_on:
+      - auth-services-db
+    volumes:
+      - ./auth-services:/opt/app
+
+  auth-services-db:
+    environment:
+      - MYSQL_ROOT_PASSWORD=password
+      - MYSQL_DATABASE=db
+    image: mysql:5.7.20
+
+  tickets-services:
+    # build: "./tickets/tickets-services"
+    build:
+      context: "."
+      dockerfile: "./tickets/Dockerfile"
+    depends_on:
+      - tickets-services-db
+    volumes:
+      - ./tickets-services:/opt/app
+    
+  tickets-services-db:
+    environment:
+      - MYSQL_ROOT_PASSWORD=password
+      - MYSQL_DATABASE=db
+    image: mysql:5.7.20

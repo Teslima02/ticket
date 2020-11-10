@@ -1,8 +1,18 @@
+# FROM node:alpine
+
+# WORKDIR /app
+# COPY package.json .
+# RUN npm install --only=prod
+# COPY . .
+
+# CMD ["npm", "start"]
+
 FROM node:alpine
 
-WORKDIR /app
-COPY package.json .
-RUN npm install --only=prod
-COPY . .
+COPY . /opt/app
 
-CMD ["npm", "start"]
+WORKDIR /opt/app/tickets-service
+
+RUN yarn
+
+CMD yarn start

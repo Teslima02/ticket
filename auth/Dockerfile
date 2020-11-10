@@ -1,8 +1,9 @@
 FROM node:alpine
 
-WORKDIR /app
-COPY package.json .
-RUN npm install --only=prod
-COPY . .
+COPY . /opt/app
 
-CMD ["npm", "start"]
+WORKDIR /opt/app/auth-service
+
+RUN yarn
+
+CMD yarn start
